@@ -18,11 +18,13 @@
 @endphp
 
 <header
-    class="fixed inset-x-0 top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
+    class="fixed inset-x-0 top-0 z-50 border-b transition-all duration-300"
+    :class="scrolled ? 'bg-background/80 supports-[backdrop-filter]:bg-background/60 backdrop-blur border-border shadow-sm' : 'bg-transparent border-transparent'"
     x-data="{
         mobileMenuOpen: false,
         currentLang: 'en',
         languages: @js($languages),
+        scrolled: false,
         toggleMobile() {
             this.mobileMenuOpen = !this.mobileMenuOpen;
         },
@@ -33,6 +35,8 @@
             this.currentLang = code;
         }
     }"
+    x-init="scrolled = window.scrollY > 10"
+    @scroll.window="scrolled = window.scrollY > 10"
 >
     <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -137,5 +141,3 @@
         </div>
     </nav>
 </header>
-
-
