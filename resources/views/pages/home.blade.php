@@ -1,11 +1,9 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', $pageTitle)
 
 @section('content')
-    @include('components.home.hero', ['stats' => $heroStats])
-    @include('components.home.what-we-do', ['services' => $services])
-    @include('components.home.updates', ['updates' => $updates])
-    @include('components.home.member-marquee', ['members' => $members])
-    @include('components.home.impact', ['metrics' => $metrics])
+    @foreach ($blocks as $block)
+        <x-page-block :block="$block" />
+    @endforeach
 @endsection

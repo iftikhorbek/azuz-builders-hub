@@ -1,4 +1,6 @@
-﻿<section class="py-16 md:py-24 bg-primary text-primary-foreground relative overflow-hidden">
+@props(['metrics' => []])
+
+<section class="py-16 md:py-24 bg-primary text-primary-foreground relative overflow-hidden">
     <div class="absolute inset-0 opacity-5" aria-hidden="true">
         <div
             class="absolute inset-0"

@@ -1,4 +1,6 @@
-﻿<section class="relative overflow-hidden pattern-bg">
+@props(['stats' => []])
+
+<section class="relative overflow-hidden pattern-bg">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-8">

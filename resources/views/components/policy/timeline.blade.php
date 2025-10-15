@@ -1,4 +1,6 @@
-﻿@php
+@props(['policies' => []])
+
+@php
     $statusClasses = [
         'draft' => 'status-draft',
         'consultation' => 'status-consultation',
@@ -50,7 +52,7 @@
                         @endif
                     </div>
 
-                    @if ($policy['status'] === 'consultation')
+                    @if (($policy['status'] ?? null) === 'consultation')
                         <div class="pt-4 border-t">
                             <a href="#" class="btn btn-cta btn-size-sm inline-flex items-center">Submit Feedback</a>
                         </div>

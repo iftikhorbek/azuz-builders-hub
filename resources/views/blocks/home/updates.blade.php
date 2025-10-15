@@ -1,4 +1,6 @@
-﻿@php
+@props(['updates' => []])
+
+@php
     $statusClasses = [
         'consultation' => 'status-consultation',
         'upcoming' => 'status-draft',

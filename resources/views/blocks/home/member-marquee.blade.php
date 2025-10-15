@@ -1,4 +1,6 @@
-﻿<section class="py-12 border-y bg-muted/20">
+@props(['members' => []])
+
+<section class="py-12 border-y bg-muted/20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8">
             <div class="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
