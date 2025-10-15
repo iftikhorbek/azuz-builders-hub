@@ -45,12 +45,12 @@ class PageController extends Controller
             ['icon' => 'trending-up', 'value' => '150+', 'label' => 'Active Projects', 'sublabel' => 'By member organizations', 'color' => 'text-primary', 'background' => 'bg-primary/10'],
         ];
 
-        return $this->renderPage('pages.home', 'Home', [
-            ['view' => 'blocks.home.hero', 'data' => ['stats' => $heroStats]],
-            ['view' => 'blocks.home.what-we-do', 'data' => ['services' => $services]],
-            ['view' => 'blocks.home.updates', 'data' => ['updates' => $updates]],
-            ['view' => 'blocks.home.member-marquee', 'data' => ['members' => $members]],
-            ['view' => 'blocks.home.impact', 'data' => ['metrics' => $metrics]],
+        return $this->renderPage('pages.home.index', 'Home', [
+            ['view' => 'blocks.home-hero', 'data' => ['stats' => $heroStats]],
+            ['view' => 'blocks.home-what-we-do', 'data' => ['services' => $services]],
+            ['view' => 'blocks.home-updates', 'data' => ['updates' => $updates]],
+            ['view' => 'blocks.home-member-marquee', 'data' => ['members' => $members]],
+            ['view' => 'blocks.home-impact', 'data' => ['metrics' => $metrics]],
         ]);
     }
 
@@ -77,9 +77,9 @@ class PageController extends Controller
             ['role' => 'Technical Committees', 'members' => '4 specialized groups', 'description' => 'Urban Planning, Housing, Technical Norms, Digitalization'],
         ];
 
-        return $this->renderPage('pages.about', 'About', [
+        return $this->renderPage('pages.about.index', 'About', [
             [
-                'view' => 'blocks.shared.page-hero',
+                'view' => 'blocks.page-hero',
                 'data' => [
                     'badge' => 'Non-profit Organization - Est. 2020',
                     'title' => 'About AZUZ',
@@ -87,7 +87,7 @@ class PageController extends Controller
                 ],
             ],
             [
-                'view' => 'blocks.about.mission-vision',
+                'view' => 'blocks.about-mission-vision',
                 'data' => [
                     'mission' => [
                         'icon' => 'target',
@@ -105,9 +105,9 @@ class PageController extends Controller
                     ],
                 ],
             ],
-            ['view' => 'blocks.about.values', 'data' => ['values' => $values]],
-            ['view' => 'blocks.about.governance', 'data' => ['items' => $governance]],
-            ['view' => 'blocks.about.timeline', 'data' => ['items' => $timeline]],
+            ['view' => 'blocks.about-values', 'data' => ['values' => $values]],
+            ['view' => 'blocks.about-governance', 'data' => ['items' => $governance]],
+            ['view' => 'blocks.about-timeline', 'data' => ['items' => $timeline]],
         ]);
     }
 
@@ -168,9 +168,9 @@ class PageController extends Controller
             ['number' => '04', 'title' => 'Board Review & Approval', 'description' => 'Our membership committee evaluates applications within 14 business days'],
         ];
 
-        return $this->renderPage('pages.membership', 'Membership', [
+        return $this->renderPage('pages.membership.index', 'Membership', [
             [
-                'view' => 'blocks.shared.page-hero',
+                'view' => 'blocks.page-hero',
                 'data' => [
                     'title' => 'Join AZUZ',
                     'subtitle' => "Become part of Uzbekistan's leading construction industry association and help shape the future of urban development.",
@@ -179,10 +179,10 @@ class PageController extends Controller
                     ],
                 ],
             ],
-            ['view' => 'blocks.membership.benefits', 'data' => ['benefits' => $benefits]],
-            ['view' => 'blocks.membership.categories', 'data' => ['categories' => $categories]],
+            ['view' => 'blocks.membership-benefits', 'data' => ['benefits' => $benefits]],
+            ['view' => 'blocks.membership-categories', 'data' => ['categories' => $categories]],
             [
-                'view' => 'blocks.membership.application',
+                'view' => 'blocks.membership-application',
                 'data' => [
                     'steps' => $steps,
                     'supportCopy' => sprintf('Questions? <a href="%s" class="text-primary hover:underline">Contact our membership team</a>', route('contact')),
@@ -212,9 +212,9 @@ class PageController extends Controller
         $segments = ['all', 'Developer', 'Associate', 'Institutional'];
         $regions = ['all', 'Tashkent', 'Samarkand', 'Bukhara', 'Fergana'];
 
-        return $this->renderPage('pages.members', 'Members', [
+        return $this->renderPage('pages.members.index', 'Members', [
             [
-                'view' => 'blocks.shared.page-hero',
+                'view' => 'blocks.page-hero',
                 'data' => [
                     'badge' => 'Verified Members',
                     'badgeIcon' => 'shield-check',
@@ -224,7 +224,7 @@ class PageController extends Controller
                 ],
             ],
             [
-                'view' => 'blocks.members.directory',
+                'view' => 'blocks.members-directory',
                 'data' => [
                     'members' => $memberDirectory,
                     'segments' => $segments,
@@ -251,17 +251,17 @@ class PageController extends Controller
             ['icon' => 'laptop', 'name' => 'Digitalization', 'description' => 'BIM, digital permitting, smart building technologies', 'progress' => 55, 'activeItems' => 5],
         ];
 
-        return $this->renderPage('pages.policy', 'Policy & Standards', [
+        return $this->renderPage('pages.policy.index', 'Policy & Standards', [
             [
-                'view' => 'blocks.shared.page-hero',
+                'view' => 'blocks.page-hero',
                 'data' => [
                     'breadcrumbs' => [['label' => 'Policy & Standards']],
                     'title' => 'Policy & Standards',
                     'subtitle' => "Track policy developments, participate in consultations, and access industry standards that shape Uzbekistan's construction sector.",
                 ],
             ],
-            ['view' => 'blocks.policy.workstreams', 'data' => ['workstreams' => $workstreams]],
-            ['view' => 'blocks.policy.timeline', 'data' => ['policies' => $policies]],
+            ['view' => 'blocks.policy-workstreams', 'data' => ['workstreams' => $workstreams]],
+            ['view' => 'blocks.policy-timeline', 'data' => ['policies' => $policies]],
         ]);
     }
 
@@ -274,16 +274,16 @@ class PageController extends Controller
             ['id' => 4, 'title' => 'BIM for Project Managers Webinar', 'type' => 'Webinar', 'date' => '2025-11-08', 'time' => '15:00 - 16:00', 'location' => 'Online', 'attendees' => 150, 'status' => 'upcoming', 'description' => 'Virtual session covering BIM workflows, collaboration tools, and ROI analysis for project management teams.', 'speakers' => ['Olga Ivanova', 'Tech Partner: Autodesk'], 'agenda' => ['BIM Benefits', 'Implementation Roadmap', 'Live Demo', 'Q&A'], 'price' => 'Free'],
         ];
 
-        return $this->renderPage('pages.events', 'Training & Events', [
+        return $this->renderPage('pages.events.index', 'Training & Events', [
             [
-                'view' => 'blocks.shared.page-hero',
+                'view' => 'blocks.page-hero',
                 'data' => [
                     'breadcrumbs' => [['label' => 'Training & Events']],
                     'title' => 'Training & Events',
                     'subtitle' => 'Professional development programs, industry forums, and networking opportunities to advance your expertise.',
                 ],
             ],
-            ['view' => 'blocks.events.upcoming', 'data' => ['events' => $events]],
+            ['view' => 'blocks.events-upcoming', 'data' => ['events' => $events]],
         ]);
     }
 
@@ -303,16 +303,16 @@ class PageController extends Controller
             ['id' => 3, 'title' => 'SmartCity Mixed-Use District', 'category' => 'mixed', 'member' => 'SmartCity Group', 'location' => 'Tashkent', 'image' => 'assets/modern-development.jpg', 'challenge' => 'Integrate smart building technologies across residential, retail, and office spaces in unified development', 'solutions' => ['IoT sensor network', 'Centralized building management', 'Smart parking systems', 'Digital resident services'], 'outcomes' => ['30% operational cost savings', 'Real-time energy monitoring', '2,000+ residential units', '50,000 sq.m retail/office'], 'standards' => ['Smart Building', 'Digital Infrastructure', 'Energy Management'], 'downloadUrl' => '#'],
         ];
 
-        return $this->renderPage('pages.projects', 'Projects & Best Practices', [
+        return $this->renderPage('pages.projects.index', 'Projects & Best Practices', [
             [
-                'view' => 'blocks.shared.page-hero',
+                'view' => 'blocks.page-hero',
                 'data' => [
                     'breadcrumbs' => [['label' => 'Projects & Best Practices']],
                     'title' => 'Projects & Best Practices',
                     'subtitle' => 'Real-world case studies demonstrating quality standards, innovation, and lessons learned from member projects.',
                 ],
             ],
-            ['view' => 'blocks.projects.directory', 'data' => ['projects' => $projects, 'categories' => $categories]],
+            ['view' => 'blocks.projects-directory', 'data' => ['projects' => $projects, 'categories' => $categories]],
         ]);
     }
 
@@ -337,19 +337,19 @@ class PageController extends Controller
             ['id' => 3, 'outlet' => 'Central Asia Development News', 'title' => 'AZUZ Members Lead in Sustainable Building Practices', 'date' => '2025-08-30', 'link' => '#'],
         ];
 
-        return $this->renderPage('pages.resources', 'Resources & Newsroom', [
+        return $this->renderPage('pages.resources.index', 'Resources & Newsroom', [
             [
-                'view' => 'blocks.shared.page-hero',
+                'view' => 'blocks.page-hero',
                 'data' => [
                     'breadcrumbs' => [['label' => 'Resources & Newsroom']],
                     'title' => 'Resources & Newsroom',
                     'subtitle' => 'Access research, market data, press releases, and media coverage about AZUZ and the construction industry.',
                 ],
             ],
-            ['view' => 'blocks.resources.press', 'data' => ['pressReleases' => $pressReleases]],
-            ['view' => 'blocks.resources.documents', 'data' => ['documents' => $documents]],
-            ['view' => 'blocks.resources.media', 'data' => ['mediaCoverage' => $mediaCoverage]],
-            ['view' => 'blocks.resources.media-cta', 'data' => ['email' => 'press@azuz.uz', 'phone' => '+998 (71) 123-45-69']],
+            ['view' => 'blocks.resources-press', 'data' => ['pressReleases' => $pressReleases]],
+            ['view' => 'blocks.resources-documents', 'data' => ['documents' => $documents]],
+            ['view' => 'blocks.resources-media', 'data' => ['mediaCoverage' => $mediaCoverage]],
+            ['view' => 'blocks.resources-media-cta', 'data' => ['email' => 'press@azuz.uz', 'phone' => '+998 (71) 123-45-69']],
         ]);
     }
 
@@ -371,18 +371,18 @@ class PageController extends Controller
             ['value' => 'partnership', 'label' => 'Partnership'],
         ];
 
-        return $this->renderPage('pages.contact', 'Contact', [
+        return $this->renderPage('pages.contact.index', 'Contact', [
             [
-                'view' => 'blocks.shared.page-hero',
+                'view' => 'blocks.page-hero',
                 'data' => [
                     'breadcrumbs' => [['label' => 'Contact']],
                     'title' => 'Get in Touch',
                     'subtitle' => 'Have questions about membership, events, or policy initiatives? Our team is here to help.',
                 ],
             ],
-            ['view' => 'blocks.contact.info', 'data' => ['items' => $contactInfo]],
-            ['view' => 'blocks.contact.form', 'data' => ['inquiryTypes' => $inquiryTypes]],
-            ['view' => 'blocks.contact.map'],
+            ['view' => 'blocks.contact-info', 'data' => ['items' => $contactInfo]],
+            ['view' => 'blocks.contact-form', 'data' => ['inquiryTypes' => $inquiryTypes]],
+            ['view' => 'blocks.contact-map'],
         ]);
     }
 
@@ -397,4 +397,5 @@ class PageController extends Controller
         ], $additional));
     }
 }
+
 
