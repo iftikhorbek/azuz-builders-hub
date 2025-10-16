@@ -334,6 +334,8 @@ All colors MUST be HSL.
     padding-top: var(--header-height); /* Add padding for header space */
     transition: var(--transition-smooth);
     will-change: transform; /* Optimize for zoom/scale changes */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
   }
 
   /* Optional: Parallax effect (uncomment if desired, but may not work on mobile) */
@@ -569,6 +571,15 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes bounce-slow {
   0%, 100% {
     transform: translateY(0);
@@ -606,6 +617,10 @@ All colors MUST be HSL.
 
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
   }
 
   .animate-bounce-slow {

@@ -22,17 +22,17 @@
         {{-- Content --}}
         <div class="max-w-4xl">
             {{-- Hero Headline --}}
-            <h1 class="hero-headline !text-left !mx-0 animate-fade-in-up">
+            <h1 class="hero-headline !text-left !mx-0 animate-fade-in-up" style="opacity: 0; animation-delay: 0.8s;">
                 {{ $headline }}
             </h1>
 
             {{-- Hero Subheadline --}}
-            <p class="hero-subheadline !text-left !mx-0 animate-fade-in-up" style="animation-delay: 0.1s;">
+            <p class="hero-subheadline !text-left !mx-0 animate-fade-in-up" style="opacity: 0; animation-delay: 1.1s;">
                 {{ $subheadline }}
             </p>
 
             {{-- Call to Action Buttons --}}
-            <div class="flex flex-col sm:flex-row items-start gap-4 mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="flex flex-col sm:flex-row items-start gap-4 mb-8 animate-fade-in-up" style="opacity: 0; animation-delay: 1.4s;">
                 <a href="{{ route('membership') }}" class="hero-cta-primary">
                     Join the Movement
                     <i data-lucide="arrow-right" class="h-5 w-5"></i>
@@ -45,7 +45,7 @@
     </div>
 
     {{-- Construction Image - Absolutely Positioned --}}
-    <div class="hidden lg:block absolute bottom-16 right-16" style="z-index: 1;">
+    <div class="hidden lg:block absolute bottom-16 right-16 animate-fade-in-up" style="z-index: 1; opacity: 0; animation-delay: 1.6s;">
         <img src="{{ asset('assets/construction-1.png') }}" alt="Construction" class="h-auto object-contain" style="width: 500px;">
     </div>
 </section>
