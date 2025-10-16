@@ -16,10 +16,10 @@ class PageController extends Controller
         ];
 
         $services = [
-            ['icon' => 'scale', 'title' => 'Advocacy & Representation', 'description' => 'Representing member interests in policy discussions with government agencies, ensuring industry voices shape regulatory frameworks.'],
-            ['icon' => 'trending-up', 'title' => 'Quality & Standards', 'description' => 'Developing and promoting industry standards for construction quality, safety protocols, and sustainable development practices.'],
-            ['icon' => 'lightbulb', 'title' => 'Innovation & Digitalization', 'description' => 'Driving adoption of modern technologies including BIM, digital permitting, and smart building management systems.'],
-            ['icon' => 'graduation-cap', 'title' => 'Training & Development', 'description' => 'Professional development programs, certifications, and knowledge-sharing events to elevate industry capabilities.'],
+            ['icon' => 'scale', 'title' => 'Advocacy & Representation', 'description' => 'We serve as the unified voice of the construction industry in policy discussions with government agencies and urban planning authorities. Our advocacy ensures that industry perspectives and member insights directly inform legislation, building codes, and regulatory frameworks shaping Uzbekistan\'s construction sector.'],
+            ['icon' => 'trending-up', 'title' => 'Quality & Standards', 'description' => 'We develop and maintain comprehensive industry standards covering construction quality benchmarks, workplace safety protocols, and environmental sustainability practices. Our framework helps members deliver projects meeting international best practices while adhering to local requirements, fostering continuous improvement across all construction activities.'],
+            ['icon' => 'lightbulb', 'title' => 'Innovation & Digitalization', 'description' => 'We accelerate digital transformation by promoting Building Information Modeling (BIM), cloud collaboration platforms, digital permitting systems, and smart building technologies. Through partnerships with technology providers and hands-on training, we help members leverage innovation to improve efficiency, reduce costs, and enhance project delivery.'],
+            ['icon' => 'graduation-cap', 'title' => 'Training & Development', 'description' => 'We provide comprehensive professional development including technical training programs, industry certifications, executive workshops, and networking forums. Our curriculum covers emerging construction technologies, regulatory compliance, and project management best practices, empowering professionals to advance their expertise and drive organizational success.'],
         ];
 
         $updates = [
@@ -50,8 +50,8 @@ class PageController extends Controller
             ['view' => 'blocks.home-hero', 'data' => $hero],
             ['view' => 'blocks.home-what-we-do', 'data' => ['services' => $services]],
             ['view' => 'blocks.home-updates', 'data' => ['updates' => $updates]],
-            ['view' => 'blocks.home-member-marquee', 'data' => ['members' => $members]],
             ['view' => 'blocks.home-impact', 'data' => ['metrics' => $metrics]],
+            ['view' => 'blocks.home-member-marquee', 'data' => ['members' => $members]],
         ]);
     }
 

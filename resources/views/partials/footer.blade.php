@@ -21,7 +21,7 @@
     ];
 @endphp
 
-<footer class="border-t mt-auto relative overflow-hidden" style="background-color: hsl(var(--background)); background-image: url('{{ asset('assets/footer-bg.png') }}'); background-size: cover; background-position: bottom; background-repeat: no-repeat; background-blend-mode: overlay;">
+<footer class="border-t relative overflow-hidden" style="background-color: hsl(var(--background)); background-image: url('{{ asset('assets/footer-bg.png') }}'); background-size: cover; background-position: bottom; background-repeat: no-repeat; background-blend-mode: overlay;">
     {{-- Light overlay for better text readability --}}
     <div class="absolute inset-0 bg-background/40"></div>
 

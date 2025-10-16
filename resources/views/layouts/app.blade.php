@@ -12,7 +12,7 @@
     <div class="min-h-screen flex flex-col">
         @includeIf('partials.header')
 
-        <main class="flex-1 m-0 p-0">
+        <main class="m-0 p-0">
             @yield('content')
         </main>
 
