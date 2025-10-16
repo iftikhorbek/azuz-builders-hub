@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -84,7 +84,6 @@ class PageController extends Controller
                 'data' => [
                     'fullHeight' => true,
                     'backgroundImage' => 'assets/about-hero-bg.png',
-                    'badge' => 'Non-profit Organization - Est. 2020',
                     'title' => 'About AZUZ',
                     'subtitle' => 'The Association of Developers of Uzbekistan (AZUZ) is a non-profit organization uniting construction developers to elevate industry standards, drive innovation, and shape policy for sustainable urban development.',
                 ],
