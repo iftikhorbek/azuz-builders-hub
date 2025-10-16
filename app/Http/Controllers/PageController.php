@@ -103,7 +103,7 @@ class PageController extends Controller
                         'description' => 'A modernized, transparent, and internationally competitive construction industry that creates sustainable, livable cities for all Uzbekistan residents.',
                     ],
                     'image' => [
-                        'src' => 'assets/collaboration.jpg',
+                        'src' => 'assets/azuz-about.png',
                         'alt' => 'AZUZ team collaboration',
                     ],
                 ],
