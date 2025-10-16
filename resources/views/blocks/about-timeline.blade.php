@@ -15,7 +15,7 @@
             <div class="relative">
                 <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-border" aria-hidden="true"></div>
                 <div class="space-y-8">
-                    @foreach ($items as $item)
+                    @foreach (collect($items)->reverse()->values() as $item)
                         <div class="relative flex gap-6">
                             <div class="flex-shrink-0 flex h-16 w-16 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold shadow-md z-10">
                                 {{ $item['year'] ?? '' }}
