@@ -12,7 +12,11 @@
 ])
 
 @php
-    $sectionClasses = ['border-b'];
+    $sectionClasses = [];
+
+    if (! $backgroundImage) {
+        $sectionClasses[] = 'border-b';
+    }
 
     if ($backgroundImage) {
         $sectionClasses[] = 'relative overflow-hidden hero-with-bg-image hero-bg-overlay';
@@ -116,7 +120,7 @@
         @if ($stats)
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 @foreach ($stats as $stat)
-                    <div class="p-4 bg-card border-2 rounded-xl">
+                    <div class="p-6 card-elevated bg-card border-0 rounded-xl">
                         <div class="text-2xl font-bold text-primary">{{ $stat['value'] ?? '' }}</div>
                         <div class="text-sm text-muted-foreground">{{ $stat['label'] ?? '' }}</div>
                     </div>
