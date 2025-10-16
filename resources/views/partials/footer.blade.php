@@ -21,8 +21,11 @@
     ];
 @endphp
 
-<footer class="border-t bg-muted/30 mt-auto">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<footer class="border-t mt-auto relative overflow-hidden" style="background-color: hsl(var(--background)); background-image: url('{{ asset('assets/footer-bg.png') }}'); background-size: cover; background-position: bottom; background-repeat: no-repeat; background-blend-mode: overlay;">
+    {{-- Light overlay for better text readability --}}
+    <div class="absolute inset-0 bg-background/40"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div class="lg:col-span-2">
                 <div class="mb-4">
@@ -102,7 +105,7 @@
             </div>
         </div>
 
-        <div class="mt-12 pt-8 border-t">
+        <div class="mt-8 pt-6 border-t">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-sm text-muted-foreground">
                     &copy; {{ now()->year }} O'zbekiston Quruvchilar Assotsiatsiyasi. All rights reserved. Non-profit organization, founded 2020.

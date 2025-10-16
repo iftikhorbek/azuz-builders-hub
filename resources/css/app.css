@@ -218,6 +218,34 @@ All colors MUST be HSL.
     margin-top: calc(-1 * var(--header-height)) !important; /* Pull main up behind fixed header */
   }
 
+  /* Apply mesh pattern to all main sections except hero */
+  main > section:not(.hero-with-bg-image) {
+    background: hsl(var(--background));
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 80px,
+        hsl(var(--primary) / 0.04) 80px,
+        hsl(var(--primary) / 0.04) 81px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 80px,
+        hsl(var(--primary) / 0.04) 80px,
+        hsl(var(--primary) / 0.04) 81px
+      ),
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: auto, auto, 60px 60px, 60px 60px;
+  }
+
+  /* Footer has no mesh pattern - but can have custom background image */
+  footer {
+    /* Background image can be set inline on footer element */
+  }
+
   /* Remove margin from first section */
   main > section:first-child,
   main > *:first-child {
@@ -241,6 +269,29 @@ All colors MUST be HSL.
         hsl(var(--primary) / 0.01) 20px,
         hsl(var(--primary) / 0.01) 40px
       );
+  }
+
+  /* Architectural Mesh Pattern - For content sections */
+  .pattern-mesh {
+    background: hsl(var(--background));
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 80px,
+        hsl(var(--primary) / 0.04) 80px,
+        hsl(var(--primary) / 0.04) 81px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 80px,
+        hsl(var(--primary) / 0.04) 80px,
+        hsl(var(--primary) / 0.04) 81px
+      ),
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: auto, auto, 60px 60px, 60px 60px;
   }
 
   /* Enhanced Hero Section Backgrounds */
