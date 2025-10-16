@@ -8,11 +8,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('head')
 </head>
-<body class="min-h-screen bg-background text-foreground antialiased m-0">
+<body class="min-h-screen bg-background text-foreground antialiased m-0 p-0">
     <div class="min-h-screen flex flex-col">
         @includeIf('partials.header')
 
-        <main class="flex-1">
+        <main class="flex-1 m-0 p-0">
             @yield('content')
         </main>
 

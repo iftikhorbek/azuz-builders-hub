@@ -144,13 +144,32 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    margin: 0;
+    padding: 0;
+  }
+
   body {
-    @apply bg-background text-foreground font-sans antialiased m-0;
+    @apply bg-background text-foreground font-sans antialiased;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ensure no gap at top of page */
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Remove margin but keep padding for content spacing */
+  main > section:first-child,
+  main > *:first-child {
+    margin-top: 0 !important;
   }
   
   /* Uzbek geometric pattern background */
   .pattern-bg {
-    background-image: 
+    background-image:
       linear-gradient(135deg, hsl(var(--primary) / 0.02) 0%, transparent 50%),
       repeating-linear-gradient(
         45deg,
@@ -160,7 +179,116 @@ All colors MUST be HSL.
         hsl(var(--primary) / 0.01) 40px
       );
   }
-  
+
+  /* Enhanced Hero Section Backgrounds */
+  .hero-gradient-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.08) 0%,
+      hsl(var(--background)) 50%,
+      hsl(var(--muted)) 100%
+    );
+  }
+
+  .hero-layered-bg {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.05) 0%,
+      hsl(var(--background)) 100%
+    );
+  }
+
+  /* Hero with background image */
+  .hero-with-bg-image {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Changed from fixed for better compatibility */
+    min-height: 100vh; /* Ensure it covers full viewport height */
+  }
+
+  /* Optional: Parallax effect (uncomment if desired, but may not work on mobile) */
+  @media (min-width: 1024px) {
+    .hero-with-bg-image.parallax {
+      background-attachment: fixed;
+    }
+  }
+
+  /* Layered overlay for background images - ensures text readability */
+  .hero-bg-overlay {
+    position: relative;
+  }
+
+  .hero-bg-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background) / 0.75) 0%,
+      hsl(var(--background) / 0.65) 40%,
+      hsl(var(--background) / 0.4) 100%
+    );
+    z-index: 0;
+  }
+
+  .hero-bg-overlay > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Hero image overlay for better text readability */
+  .hero-image-overlay {
+    position: relative;
+  }
+
+  .hero-image-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background) / 0.95) 0%,
+      hsl(var(--background) / 0.7) 50%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-image-overlay > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Optional: BIM/Tech wireframe grid overlay */
+  .tech-grid-overlay {
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Optional: Animated blueprint lines */
+  .blueprint-lines {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 49px,
+        hsl(var(--primary) / 0.05) 49px,
+        hsl(var(--primary) / 0.05) 50px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 49px,
+        hsl(var(--primary) / 0.05) 49px,
+        hsl(var(--primary) / 0.05) 50px
+      );
+  }
+
   /* Elevated cards */
   .card-elevated {
     box-shadow: var(--shadow-md);
@@ -258,9 +386,49 @@ All colors MUST be HSL.
     transform: translateX(-50%);
   }
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+  }
+}
+
 @layer utilities {
   .animate-marquee {
     animation: marquee 30s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
   }
 }
 @layer components {
