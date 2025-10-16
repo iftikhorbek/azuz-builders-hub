@@ -23,8 +23,8 @@ class PageController extends Controller
         ];
 
         $updates = [
-            ['type' => 'policy', 'icon' => 'file-text', 'title' => 'New Building Energy Efficiency Standards', 'description' => 'Public consultation phase for updated residential energy performance requirements', 'status' => 'consultation', 'date' => '2025-10-05', 'link' => route('policy')],
-            ['type' => 'event', 'icon' => 'calendar', 'title' => 'Annual Construction Innovation Forum', 'description' => 'Join 200+ industry leaders discussing BIM adoption and digital transformation', 'status' => 'upcoming', 'date' => '2025-11-15', 'link' => route('events')],
+            ['type' => 'policy', 'icon' => 'file-text', 'title' => 'New Building Energy Efficiency Standards', 'description' => 'Public consultation phase for updated residential energy performance requirements', 'status' => 'consultation', 'date' => '2025-11-05', 'link' => route('policy')],
+            ['type' => 'event', 'icon' => 'calendar', 'title' => 'Annual Construction Innovation Forum', 'description' => 'Join 200+ industry leaders discussing BIM adoption and digital transformation', 'status' => 'upcoming', 'date' => '2025-10-15', 'link' => route('events')],
             ['type' => 'member', 'icon' => 'users', 'title' => 'Welcome New Member: TashkentStroy Group', 'description' => 'Leading residential developer joins AZUZ with portfolio of 15+ active projects', 'status' => 'new', 'date' => '2025-10-01', 'link' => route('members')],
         ];
 
