@@ -215,6 +215,7 @@ All colors MUST be HSL.
   main {
     margin: 0 !important;
     padding: 0 !important;
+    margin-top: calc(-1 * var(--header-height)) !important; /* Pull main up behind fixed header */
   }
 
   /* Remove margin from first section */
@@ -268,9 +269,8 @@ All colors MUST be HSL.
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    min-height: 100vh; /* Simple viewport height - always works at any scale */
-    margin-top: calc(-1 * var(--header-height)); /* Scalable header offset */
-    padding-top: var(--header-height); /* Compensate for negative margin */
+    min-height: calc(100vh + var(--header-height)); /* Compensate for main's negative margin */
+    padding-top: var(--header-height); /* Add padding for header space */
     transition: var(--transition-smooth);
     will-change: transform; /* Optimize for zoom/scale changes */
   }
@@ -543,7 +543,7 @@ All colors MUST be HSL.
   .hero-content-wrapper {
     padding-top: var(--hero-padding-top);
     padding-bottom: var(--hero-padding-bottom);
-    min-height: calc(100vh - var(--header-height));
+    min-height: 100vh; /* Full viewport height for proper centering */
     display: flex;
     flex-direction: column;
     align-items: center;

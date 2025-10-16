@@ -4,7 +4,11 @@
       "Bash(tree:*)",
       "Bash(php artisan view:clear:*)",
       "Bash(php artisan optimize:clear:*)",
-      "WebFetch(domain:celion.io)"
+      "WebFetch(domain:celion.io)",
+      "Bash(magick:*)",
+      "Bash(convert:*)",
+      "Bash(python:*)",
+      "Bash(php artisan config:clear:*)"
     ],
     "deny": [],
     "ask": []

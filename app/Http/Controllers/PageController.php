@@ -9,8 +9,8 @@ class PageController extends Controller
     public function home(): View
     {
         $hero = [
-            'headline' => 'Stronger Together. Building Better.',
-            'subheadline' => 'AZUZ unites Uzbekistan\'s construction leaders to elevate standards, accelerate innovation, and build sustainable cities.',
+            'headline' => "BUILDING THE FUTURE OF UZBEKISTAN'S URBAN DEVELOPMENT",
+            'subheadline' => 'Setting standards. Shaping policy. Building better.',
             'members' => '28+',
             'projects' => '150+',
         ];

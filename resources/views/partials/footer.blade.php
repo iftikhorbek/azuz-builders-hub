@@ -26,16 +26,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div class="lg:col-span-2">
                 <div class="flex items-center space-x-3 mb-4">
-                    <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                        <span class="text-xl font-bold text-primary-foreground">A</span>
-                    </div>
+                    <img src="{{ asset('assets/azuz-logo.png') }}" alt="AZUZ Logo" class="h-10 w-10 object-contain">
                     <div>
-                        <div class="text-lg font-bold text-foreground">AZUZ</div>
-                        <div class="text-xs text-muted-foreground">Association of Developers</div>
+                        <div class="text-sm font-medium text-foreground">O'zbekiston Quruvchilar Assotsiatsiyasi</div>
                     </div>
                 </div>
                 <p class="text-sm text-muted-foreground mb-6 max-w-sm">
-                    Uniting Uzbekistan's developers to raise standards, accelerate innovation, and build better cities.
+                    Setting standards. Shaping policy. Building better.
                 </p>
 
                 <div class="space-y-2 text-sm">
@@ -111,7 +108,7 @@
         <div class="mt-12 pt-8 border-t">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-sm text-muted-foreground">
-                    &copy; {{ now()->year }} AZUZ. All rights reserved. Non-profit organization, founded 2020.
+                    &copy; {{ now()->year }} O'zbekiston Quruvchilar Assotsiatsiyasi. All rights reserved. Non-profit organization, founded 2020.
                 </p>
                 <div class="flex items-center gap-1 text-xs text-muted-foreground">
                     <span class="inline-flex h-2 w-2 rounded-full bg-success mr-1"></span>
