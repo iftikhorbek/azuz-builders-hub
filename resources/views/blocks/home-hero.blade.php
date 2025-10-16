@@ -41,11 +41,6 @@
                     Explore Our Impact
                 </a>
             </div>
-
-            {{-- Trust Indicator --}}
-            <div class="text-sm text-muted-foreground font-medium tracking-wide animate-fade-in-up" style="animation-delay: 0.3s;">
-                {{ $members }} Members &nbsp;•&nbsp; {{ $projects }} Projects
-            </div>
         </div>
     </div>
 

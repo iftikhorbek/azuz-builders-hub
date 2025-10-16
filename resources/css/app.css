@@ -1,3 +1,6 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -197,7 +200,14 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Headings use Poppins */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
   /* Ensure no gap at top of page */
@@ -351,6 +361,22 @@ All colors MUST be HSL.
     z-index: 0;
   }
 
+  /* Gradient fade for background image top and bottom */
+  .hero-bg-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--background)) 0%,
+      transparent 15%,
+      transparent 85%,
+      hsl(var(--background)) 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .hero-bg-overlay > * {
     position: relative;
     z-index: 1;
@@ -440,6 +466,7 @@ All colors MUST be HSL.
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   .btn svg {
@@ -606,7 +633,8 @@ All colors MUST be HSL.
 
   /* Hero Brand Typography */
   .hero-headline {
-    font-size: clamp(3rem, 8vw, 6rem); /* 48px - 96px responsive */
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* 40px - 72px responsive */
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
@@ -617,8 +645,9 @@ All colors MUST be HSL.
   }
 
   .hero-subheadline {
+    font-family: 'Inter', sans-serif;
     font-size: clamp(1.125rem, 2vw, 1.25rem); /* 18px - 20px */
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.6;
     color: hsl(var(--muted-foreground));
     max-width: min(600px, 90vw); /* Responsive max-width */
