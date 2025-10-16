@@ -3,7 +3,8 @@
     "allow": [
       "Bash(tree:*)",
       "Bash(php artisan view:clear:*)",
-      "Bash(php artisan optimize:clear:*)"
+      "Bash(php artisan optimize:clear:*)",
+      "WebFetch(domain:celion.io)"
     ],
     "deny": [],
     "ask": []

@@ -8,10 +8,11 @@ class PageController extends Controller
 {
     public function home(): View
     {
-        $heroStats = [
-            ['label' => 'Member Organizations', 'value' => '28+', 'icon' => 'users'],
-            ['label' => 'Active Projects', 'value' => '150+', 'icon' => 'building-2'],
-            ['label' => 'Standards Adopted', 'value' => '12', 'icon' => 'award'],
+        $hero = [
+            'headline' => 'Stronger Together. Building Better.',
+            'subheadline' => 'AZUZ unites Uzbekistan\'s construction leaders to elevate standards, accelerate innovation, and build sustainable cities.',
+            'members' => '28+',
+            'projects' => '150+',
         ];
 
         $services = [
@@ -46,7 +47,7 @@ class PageController extends Controller
         ];
 
         return $this->renderPage('pages.home.index', 'Home', [
-            ['view' => 'blocks.home-hero', 'data' => ['stats' => $heroStats]],
+            ['view' => 'blocks.home-hero', 'data' => $hero],
             ['view' => 'blocks.home-what-we-do', 'data' => ['services' => $services]],
             ['view' => 'blocks.home-updates', 'data' => ['updates' => $updates]],
             ['view' => 'blocks.home-member-marquee', 'data' => ['members' => $members]],

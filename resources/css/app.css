@@ -88,6 +88,17 @@ All colors MUST be HSL.
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-scale: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Layout Spacing - Viewport-relative for perfect scaling */
+    --header-height: 4rem;                          /* 64px - scales with root font-size */
+    --hero-padding-top: clamp(5rem, 10vh, 8rem);    /* 80px - 128px responsive */
+    --hero-padding-bottom: clamp(7.5rem, 15vh, 12rem); /* 120px - 192px responsive */
+    --hero-gap: clamp(1.5rem, 3vh, 3rem);           /* Spacing between hero elements */
+    --hero-badge-mb: clamp(1.5rem, 3vh, 2rem);      /* Badge bottom margin */
+    --hero-headline-mb: clamp(1rem, 2vh, 1.5rem);   /* Headline bottom margin */
+    --hero-subheadline-mb: clamp(2rem, 4vh, 2.5rem); /* Subheadline bottom margin */
+    --hero-cta-mb: clamp(2rem, 5vh, 3rem);          /* CTA group bottom margin */
 
     /* Verified badge */
     --verified: 160 84% 39%;          /* #10B981 - Green */
@@ -250,14 +261,18 @@ All colors MUST be HSL.
     );
   }
 
-  /* Hero with background image */
+  /* Hero with background image - Viewport-relative for perfect scaling */
   .hero-with-bg-image {
     position: relative;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: scroll; /* Changed from fixed for better compatibility */
-    min-height: calc(100vh + 64px); /* Ensure it covers full viewport height + header overlap */
+    background-attachment: scroll;
+    min-height: 100vh; /* Simple viewport height - always works at any scale */
+    margin-top: calc(-1 * var(--header-height)); /* Scalable header offset */
+    padding-top: var(--header-height); /* Compensate for negative margin */
+    transition: var(--transition-smooth);
+    will-change: transform; /* Optimize for zoom/scale changes */
   }
 
   /* Optional: Parallax effect (uncomment if desired, but may not work on mobile) */
@@ -465,6 +480,35 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3), 0 0 40px hsl(var(--accent) / 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.5), 0 0 60px hsl(var(--accent) / 0.2);
+  }
+}
+
 @layer utilities {
   .animate-marquee {
     animation: marquee 30s linear infinite;
@@ -481,8 +525,150 @@ All colors MUST be HSL.
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
   }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
 }
 @layer components {
+  /* Hero Content Wrapper - Viewport-relative spacing */
+  .hero-content-wrapper {
+    padding-top: var(--hero-padding-top);
+    padding-bottom: var(--hero-padding-bottom);
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    transition: var(--transition-smooth);
+  }
+
+  /* Hero Brand Typography */
+  .hero-headline {
+    font-size: clamp(3rem, 8vw, 6rem); /* 48px - 96px responsive */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: hsl(var(--foreground));
+    text-shadow: 0 2px 20px hsl(0 0% 0% / 0.3);
+    margin-bottom: var(--hero-headline-mb);
+    transition: var(--transition-smooth);
+  }
+
+  .hero-subheadline {
+    font-size: clamp(1.125rem, 2vw, 1.25rem); /* 18px - 20px */
+    font-weight: 300;
+    line-height: 1.6;
+    color: hsl(var(--muted-foreground));
+    max-width: min(600px, 90vw); /* Responsive max-width */
+    margin: 0 auto var(--hero-subheadline-mb);
+    transition: var(--transition-smooth);
+  }
+
+  .hero-cta-group {
+    @apply flex flex-col sm:flex-row items-center justify-center gap-4;
+    margin-bottom: var(--hero-cta-mb);
+    transition: var(--transition-smooth);
+  }
+
+  .hero-cta-primary {
+    @apply btn btn-cta btn-size-lg px-10 text-base;
+    height: clamp(3rem, 6vh, 3.5rem); /* Responsive button height */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    will-change: transform;
+  }
+
+  .hero-cta-primary:hover {
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  .hero-cta-secondary {
+    @apply btn btn-outline btn-size-lg px-10 text-base;
+    height: clamp(3rem, 6vh, 3.5rem); /* Responsive button height */
+    transition: all 0.3s ease;
+    will-change: transform;
+  }
+
+  .hero-cta-secondary:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Floating Decorative Orbs - Percentage-based positioning */
+  .hero-orb-1 {
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    width: clamp(4rem, 5vw, 5rem);
+    height: clamp(4rem, 5vw, 5rem);
+    border-radius: 50%;
+    filter: blur(3rem);
+    opacity: 0.8;
+    transition: var(--transition-smooth);
+    will-change: transform;
+    z-index: 1;
+  }
+
+  .hero-orb-2 {
+    position: absolute;
+    bottom: 30%;
+    left: 6%;
+    width: clamp(6rem, 8vw, 8rem);
+    height: clamp(6rem, 8vw, 8rem);
+    border-radius: 50%;
+    filter: blur(3rem);
+    opacity: 0.8;
+    transition: var(--transition-smooth);
+    will-change: transform;
+    z-index: 1;
+  }
+
+  .hero-orb-3 {
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    width: clamp(3rem, 4vw, 4rem);
+    height: clamp(3rem, 4vw, 4rem);
+    border-radius: 50%;
+    filter: blur(2rem);
+    opacity: 0.8;
+    transition: var(--transition-smooth);
+    will-change: transform;
+    z-index: 1;
+  }
+
+  /* Hero Badge */
+  .hero-badge {
+    margin-bottom: var(--hero-badge-mb);
+    transition: var(--transition-smooth);
+  }
+
+  /* Scroll Indicator - Absolute positioning with viewport units */
+  .scroll-indicator {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-foreground/20;
+    position: absolute;
+    bottom: clamp(2rem, 5vh, 4rem);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    will-change: transform;
+  }
+
+  .scroll-indicator:hover {
+    @apply border-foreground/40;
+    transform: translateX(-50%) translateY(4px);
+  }
+
   .badge {
     @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
   }
