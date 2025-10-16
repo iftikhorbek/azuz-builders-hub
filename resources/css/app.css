@@ -2,7 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* ═══════════════════════════════════════════════════════════
+   CSS RESET - Remove all default browser spacing
+   ═══════════════════════════════════════════════════════════ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100%;
+  position: relative;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
@@ -161,27 +185,37 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  html {
-    margin: 0;
-    padding: 0;
-  }
-
   body {
     @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Ensure no gap at top of page */
+  body > div {
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* Ensure no gap at top of page */
+  header {
+    margin: 0 !important;
+    padding: 0 !important;
+    top: 0 !important;
+  }
+
   main {
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* Remove margin but keep padding for content spacing */
+  /* Remove margin from first section */
   main > section:first-child,
   main > *:first-child {
     margin-top: 0 !important;
+  }
+
+  /* Ensure all elements inside body start at top */
+  body > *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
   
   /* Uzbek geometric pattern background */
@@ -223,7 +257,7 @@ All colors MUST be HSL.
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll; /* Changed from fixed for better compatibility */
-    min-height: 100vh; /* Ensure it covers full viewport height */
+    min-height: calc(100vh + 64px); /* Ensure it covers full viewport height + header overlap */
   }
 
   /* Optional: Parallax effect (uncomment if desired, but may not work on mobile) */

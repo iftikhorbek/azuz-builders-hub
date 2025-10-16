@@ -1,8 +1,8 @@
 @props(['stats' => []])
 
 <section
-    class="relative overflow-hidden hero-with-bg-image hero-bg-overlay !mt-0"
-    style="background-image: url('{{ asset('assets/hero-background.jpg') }}'); margin-top: 0 !important;"
+    class="relative overflow-hidden hero-with-bg-image hero-bg-overlay"
+    style="background-image: url('{{ asset('assets/hero-background.jpg') }}'); margin-top: -64px !important;"
 >
     {{-- Pattern and gradient overlay layers --}}
     <div class="absolute inset-0 pattern-bg opacity-20 pointer-events-none" style="z-index: 0;"></div>
@@ -15,7 +15,7 @@
     <div class="absolute bottom-40 left-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl animate-float hidden lg:block" style="z-index: 1;"></div>
     <div class="absolute top-1/2 right-1/4 w-16 h-16 bg-success/5 rounded-full blur-2xl animate-float-slow hidden lg:block" style="animation-delay: 2s; z-index: 1;"></div>
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24 relative" style="z-index: 2;">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pb-24 relative" style="z-index: 2;">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-8">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
