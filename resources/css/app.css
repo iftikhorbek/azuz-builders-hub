@@ -314,6 +314,12 @@ All colors MUST be HSL.
     );
   }
 
+  .hero-full-height {
+    min-height: calc(100vh + var(--header-height));
+    padding-top: calc(var(--header-height) + clamp(3rem, 8vh, 4.5rem));
+    padding-bottom: clamp(4rem, 10vh, 6rem);
+  }
+
   .hero-layered-bg {
     position: relative;
     background: linear-gradient(
@@ -336,6 +342,11 @@ All colors MUST be HSL.
     will-change: transform; /* Optimize for zoom/scale changes */
     opacity: 0;
     animation: fadeIn 1.5s ease-out forwards;
+  }
+
+  .hero-with-bg-image.hero-full-height {
+    padding-top: calc(var(--header-height) + clamp(3rem, 8vh, 4.5rem));
+    padding-bottom: clamp(4rem, 10vh, 6rem);
   }
 
   /* Optional: Parallax effect (uncomment if desired, but may not work on mobile) */

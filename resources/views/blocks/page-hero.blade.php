@@ -7,15 +7,52 @@
     'meta' => null,
     'actions' => [],
     'stats' => [],
+    'fullHeight' => false,
+    'backgroundImage' => null,
 ])
 
-<section class="pattern-bg py-16 md:py-24 border-b">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+@php
+    $sectionClasses = ['border-b'];
+
+    if ($backgroundImage) {
+        $sectionClasses[] = 'relative overflow-hidden hero-with-bg-image hero-bg-overlay';
+    } else {
+        $sectionClasses[] = 'pattern-bg';
+    }
+
+    $sectionClasses[] = $fullHeight ? 'hero-full-height' : 'py-16 md:py-24';
+
+    $sectionClassAttr = implode(' ', $sectionClasses);
+
+    $containerClasses = 'container relative z-[1] mx-auto px-4 sm:px-6 lg:px-8';
+
+    if ($backgroundImage) {
+        $containerClasses .= ' flex flex-col items-start justify-center py-20';
+    }
+
+    $contentWrapperClasses = 'max-w-3xl';
+
+    $containerStyle = null;
+
+    if ($fullHeight) {
+        $containerStyle = 'min-height: calc(100vh - var(--header-height));';
+    }
+@endphp
+
+<section class="{{ $sectionClassAttr }}" @if ($backgroundImage) style="background-image: url('{{ asset($backgroundImage) }}');" @endif>
+    @if ($backgroundImage)
+        <div class="absolute inset-0 pattern-bg opacity-20 pointer-events-none" style="z-index: 0;"></div>
+        <div class="hero-orb-1 bg-primary/5 animate-float-slow hidden lg:block"></div>
+        <div class="hero-orb-2 bg-accent/5 animate-float hidden lg:block"></div>
+        <div class="hero-orb-3 bg-success/5 animate-float-slow hidden lg:block" style="animation-delay: 2s;"></div>
+    @endif
+
+    <div class="{{ $containerClasses }}" @if ($containerStyle) style="{{ $containerStyle }}" @endif>
         @if ($breadcrumbs)
             @include('components.common.breadcrumb', ['items' => $breadcrumbs])
         @endif
 
-        <div class="max-w-3xl">
+        <div class="{{ $contentWrapperClasses }}">
             @if ($badge)
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                     @if ($badgeIcon)
