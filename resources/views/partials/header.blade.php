@@ -40,11 +40,8 @@
 >
     <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
-            <a href="{{ route('home') }}" class="flex items-center space-x-3">
-                <img src="{{ asset('assets/azuz-logo.png') }}" alt="AZUZ Logo" class="h-10 w-10 object-contain">
-                <div class="hidden sm:block">
-                    <div class="text-sm font-medium text-foreground">O'zbekiston Quruvchilar Assotsiatsiyasi</div>
-                </div>
+            <a href="{{ route('home') }}" class="flex items-center">
+                <img src="{{ asset('assets/logo-horizontal.png') }}" alt="AZUZ - O'zbekiston Quruvchilar Assotsiatsiyasi" class="h-8 w-auto object-contain">
             </a>
 
             <div class="hidden lg:flex lg:items-center lg:space-x-1">

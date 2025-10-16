@@ -25,11 +25,8 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div class="lg:col-span-2">
-                <div class="flex items-center space-x-3 mb-4">
-                    <img src="{{ asset('assets/azuz-logo.png') }}" alt="AZUZ Logo" class="h-10 w-10 object-contain">
-                    <div>
-                        <div class="text-sm font-medium text-foreground">O'zbekiston Quruvchilar Assotsiatsiyasi</div>
-                    </div>
+                <div class="mb-4">
+                    <img src="{{ asset('assets/logo-horizontal.png') }}" alt="AZUZ - O'zbekiston Quruvchilar Assotsiatsiyasi" class="h-10 w-auto object-contain">
                 </div>
                 <p class="text-sm text-muted-foreground mb-6 max-w-sm">
                     Setting standards. Shaping policy. Building better.
